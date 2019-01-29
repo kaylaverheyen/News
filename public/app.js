@@ -3,7 +3,7 @@ $.getJSON("/articles", function (data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
         // Display the apropos information on the page
-        $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+        $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "<br/>" + data[i].summary + "</p>");
     }
 });
 
@@ -39,6 +39,19 @@ $(document).on("click", "p", function () {
                 // Place the body of the note in the body textarea
                 $("#bodyinput").val(data.note.body);
             }
+        });
+});
+
+$("#scrape_btn").on("click", function () {
+
+    // Now make an ajax call for the Article
+    $.ajax({
+        method: "GET",
+        url: "/scrape"
+    })
+        // With that done, add the note information to the page
+        .then(function (data) {
+            console.log(data);
         });
 });
 
