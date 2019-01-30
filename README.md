@@ -11,3 +11,10 @@ NPM packages: express, express-handlebars, mongo, cheerio, axios, & morgan.
 
 ## Summary: 
 This scraper application, takes article information, suchas title, link to article, and summary of article from import.io website. The user is able to save notes on each article or delete them if they'd like. 
+
+
+### Screen 1: Scraper
+
+* User is able to save favorite articles and go to article link if desired. 
+
+
