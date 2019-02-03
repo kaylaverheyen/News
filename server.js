@@ -36,7 +36,11 @@ mongoose.connect( MONGODB_URI, {
 
 });
 
+var db = mongoose.connection;
 
+db.on('error', function(err){
+    console.log("DB error: "+err);
+})
 
 // mongoose.connect(
 //     //process.env.MONGODB_URI || 
