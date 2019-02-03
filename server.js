@@ -24,9 +24,23 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // // Connect to the Mongo DB
-mongoose.connect(
-    //process.env.MONGODB_URI || 
-    "mongodb://user:password1@ds211635.mlab.com:11635/heroku_6zx0sl0m", { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapeDB";
+
+
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect( MONGODB_URI, {
+
+  useMongoClient: true
+
+});
+
+
+
+// mongoose.connect(
+//     //process.env.MONGODB_URI || 
+//     "mongodb://user:password1@ds211635.mlab.com:11635/heroku_6zx0sl0m", { useNewUrlParser: true });
 
 // Routes
 
