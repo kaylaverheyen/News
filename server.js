@@ -36,11 +36,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://user:password1@ds221155.m
 
 });
 
-var db = mongoose.connection;
 
-db.on('error', function (err) {
-    console.log("DB error: " + err);
-})
 
 // mongoose.connect(
 //     //process.env.MONGODB_URI || 
