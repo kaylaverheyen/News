@@ -23,25 +23,18 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
-// // Connect to the Mongo DB
-// var MONGODB_URI = ;
-
-
-// Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect(process.env.MONGODB_URI || "mongodb://user:password1@ds221155.mlab.com:21155/heroku_2fvm3cf1", {
 
-    useMongoClient: true
+mongoose.connect(process.env.MONGODB_URI || "mongodb://user:password1@ds221155.mlab.com:21155/heroku_2fvm3cf1",
+    { useNewURLParser: true }
+);
 
-});
-
-
-
+//sues code: 
 // mongoose.connect(
-//     //process.env.MONGODB_URI || 
-//     "mongodb://user:password1@ds211635.mlab.com:11635/heroku_6zx0sl0m", { useNewUrlParser: true });
-
+//     process.env.MONGODB_URI ||
+//     "mongodb://user:password1@ds123645.mlab.com:23645/heroku_qv7v1pk6",
+//     { useNewURLParser: true }
+// );
 // Routes
 
 // A GET route for scraping the hacknews website
