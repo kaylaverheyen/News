@@ -4,7 +4,8 @@ $.getJSON("/articles", function (data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
         // Display the apropos information on the page
-        $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "<br/>" + data[i].summary + "</p>");
+        //$("#articles").append("<div class='jumbotron'><p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "<br/>" + data[i].summary + "</p></div>");
+        $("#articles").append("<div class='jumbotron'><div class='abc' data-id='" + data[i]._id + "'><a href='" + data[i].link + "'><h4>" + data[i].title + "</h4></a><p>" + data[i].summary + "</p></div></div>");
     }
 });
 
@@ -25,7 +26,7 @@ $("#scrape_btn").on("click", function () {
 });
 
 // Whenever someone clicks a p tag
-$(document).on("click", "p", function () {
+$(document).on("click", ".abc", function () {
     // Empty the notes from the note section
     $("#notes").empty();
     // Save the id from the p tag
